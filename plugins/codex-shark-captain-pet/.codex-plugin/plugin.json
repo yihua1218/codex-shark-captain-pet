@@ -1,0 +1,18 @@
+{
+  "name": "codex-shark-captain-pet",
+  "version": "0.1.0",
+  "description": "A persistent muscular shark captain pet with sailing and sailor animations.",
+  "author": {
+    "name": "yihua1218"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Shark Captain Pet",
+    "shortDescription": "Sail and code with Reef, the shark captain.",
+    "longDescription": "Adds Reef, a persistent mature shark captain companion with navigation, sailor-work, rest, feeding, and coding interactions.",
+    "developerName": "yihua1218",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Summon Reef and show me the shark captain's current status."
+  }
+}

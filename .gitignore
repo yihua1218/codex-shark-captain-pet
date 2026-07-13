@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+pet-run/decoded/
+pet-run/frames/
+pet-run/final/
+pet-run/qa/
+pet-run/imagegen-jobs.json
+pet-run/references/layout-guides/
+
