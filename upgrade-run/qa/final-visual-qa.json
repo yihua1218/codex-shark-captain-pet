@@ -1,0 +1,12 @@
+{
+  "visual_qa": "pass",
+  "qa_note": "All nine standard loops and the 16-direction loop preserve Reef's identity, styling, props, clean silhouette, stable registration, and coherent motion without visible hard failures.",
+  "review_warnings": [
+    "Blind vertical uncertainty accepted at 067.5, 112.5, 225, 247.5, and 315 because the labeled loop confirms the intended quadrants without reversal.",
+    "000-to-022.5 metric diff outlier accepted because no visual snap, scale pop, or registration jump appears.",
+    "Interior-hole metrics accepted as intentional between-leg and foot negative space.",
+    "Pre-cleanup standard-sheet chroma warnings accepted because despill and v2 validation both pass authoritatively."
+  ],
+  "repair_rows": [],
+  "repair_notes": "none"
+}
