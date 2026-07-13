@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "spriteVersionNumber": 2,
+  "spritesheet": "dist/reef/spritesheet.webp",
+  "validation": "dist/reef/validation.json",
+  "contactSheet": "dist/reef/contact-sheet.png",
+  "package": "dist/reef"
+}

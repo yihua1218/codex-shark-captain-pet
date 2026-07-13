@@ -1,0 +1,7 @@
+{
+  "visual_qa": "pass",
+  "qa_note": "All 58 standard frames and 16 look directions remain complete and semantically unchanged after a material reduction in edge specks; emblem, face, props, limbs, markings, and tail details are intact, the hole flags are intentional leg/limb gaps, and repaired v2 validation is ok:true.",
+  "lost_details": "none",
+  "remaining_particles": "none; no detached specks remain at normal size, and preserved separated running-right pieces are intentional tail/foot geometry",
+  "repair_notes": "none"
+}

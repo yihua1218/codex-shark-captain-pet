@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "spriteVersionNumber": 2,
+  "run_dir": "upgrade-run",
+  "spritesheet": "upgrade-run/final/spritesheet-extended.webp",
+  "validation": "upgrade-run/final/validation-extended.json",
+  "chroma_despill": "upgrade-run/qa/chroma-despill-extended.json",
+  "contact_sheet": "upgrade-run/qa/contact-sheet-extended.png",
+  "direction_sheet": "upgrade-run/qa/look-directions.png",
+  "direction_semantics": "upgrade-run/qa/direction-semantics.json",
+  "blind_direction_validation": "upgrade-run/qa/direction-blind-validation.json",
+  "blind_review_resolution": null,
+  "continuity": "upgrade-run/qa/look-continuity.json",
+  "review": "upgrade-run/qa/review.json",
+  "final_visual_qa": "upgrade-run/qa/final-visual-qa.json",
+  "package": "dist/reef",
+  "edge_particle_repair": "upgrade-run/qa/edge-particle-repair.json",
+  "edge_particle_visual_qa": "upgrade-run/qa/edge-particle-visual-qa.json"
+}
