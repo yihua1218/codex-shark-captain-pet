@@ -12,7 +12,7 @@
       ],
       "frames": 15,
       "duration_ms": 2240,
-      "size_bytes": 911380,
+      "size_bytes": 933526,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -24,7 +24,7 @@
       ],
       "frames": 11,
       "duration_ms": 1880,
-      "size_bytes": 664775,
+      "size_bytes": 674092,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -36,7 +36,7 @@
       ],
       "frames": 9,
       "duration_ms": 1440,
-      "size_bytes": 637357,
+      "size_bytes": 641505,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -48,7 +48,7 @@
       ],
       "frames": 11,
       "duration_ms": 1810,
-      "size_bytes": 571881,
+      "size_bytes": 583404,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -60,7 +60,7 @@
       ],
       "frames": 15,
       "duration_ms": 1960,
-      "size_bytes": 819983,
+      "size_bytes": 836767,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -72,7 +72,7 @@
       ],
       "frames": 15,
       "duration_ms": 1960,
-      "size_bytes": 890762,
+      "size_bytes": 909294,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -84,7 +84,7 @@
       ],
       "frames": 11,
       "duration_ms": 1480,
-      "size_bytes": 729185,
+      "size_bytes": 726709,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -96,7 +96,7 @@
       ],
       "frames": 11,
       "duration_ms": 1790,
-      "size_bytes": 614977,
+      "size_bytes": 622438,
       "palette_colors": 128,
       "loop": "infinite"
     },
@@ -108,7 +108,7 @@
       ],
       "frames": 7,
       "duration_ms": 1160,
-      "size_bytes": 440045,
+      "size_bytes": 449828,
       "palette_colors": 128,
       "loop": "infinite"
     }

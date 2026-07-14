@@ -11,10 +11,24 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageSequence
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "docs" / "assets" / "animations"
+ATLAS_PATH = ROOT / "dist" / "reef" / "spritesheet.webp"
 OUTPUT_DIR = ROOT / "docs" / "assets" / "upload-ready-512"
 CANVAS_SIZE = 512
 SUBJECT_HEIGHT = 464
 MAX_BYTES = 1_000_000
+CELL_WIDTH = 192
+CELL_HEIGHT = 208
+ROW_SPECS = (
+    ("idle", 0, 6),
+    ("running-right", 1, 8),
+    ("running-left", 2, 8),
+    ("waving", 3, 4),
+    ("jumping", 4, 5),
+    ("failed", 5, 8),
+    ("waiting", 6, 6),
+    ("running", 7, 6),
+    ("review", 8, 6),
+)
 
 
 def complete_cycle(frames: list[Image.Image], durations: list[int]) -> tuple[list[Image.Image], list[int]]:
@@ -34,22 +48,15 @@ def complete_cycle(frames: list[Image.Image], durations: list[int]) -> tuple[lis
 
 def prepare_frame(frame: Image.Image) -> Image.Image:
     rgba = frame.convert("RGBA")
-    # The source GIFs contain fully opaque chroma-key speckles around the
-    # silhouette. Remove only strongly green pixels before scaling so those
-    # artifacts are not enlarged by resampling.
-    cleaned = []
-    pixels = rgba.get_flattened_data() if hasattr(rgba, "get_flattened_data") else rgba.getdata()
-    for red, green, blue, alpha in pixels:
-        is_key_green = green > 110 and green > red * 1.2 and green > blue * 1.12
-        cleaned.append((red, green, blue, 0 if is_key_green else alpha))
-    rgba.putdata(cleaned)
     bbox = rgba.getbbox()
     if bbox:
         rgba = rgba.crop(bbox)
 
     scale = min((CANVAS_SIZE - 24) / rgba.width, SUBJECT_HEIGHT / rgba.height)
     size = (max(1, round(rgba.width * scale)), max(1, round(rgba.height * scale)))
-    rgba = rgba.resize(size, Image.Resampling.LANCZOS)
+    # Resize in premultiplied-alpha space so the RGB values hidden behind
+    # transparent chroma-key pixels cannot bleed back into visible edges.
+    rgba = rgba.convert("RGBa").resize(size, Image.Resampling.LANCZOS).convert("RGBA")
     rgba = ImageEnhance.Sharpness(rgba).enhance(1.12)
 
     canvas = Image.new("RGBA", (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
@@ -64,8 +71,11 @@ def save_under_limit(frames: list[Image.Image], durations: list[int], output: Pa
         paletted = []
         for frame in frames:
             alpha = frame.getchannel("A")
-            rgb = Image.new("RGB", frame.size, (255, 0, 255))
-            rgb.paste(frame.convert("RGB"), mask=alpha)
+            # GIF transparency is binary. Quantize the sprite's straight RGB
+            # values directly instead of first matting antialiased pixels
+            # against magenta, which would bake a purple fringe into every
+            # edge that crosses the alpha threshold below.
+            rgb = frame.convert("RGB")
             quantized = rgb.quantize(colors=colors - 1, method=Image.Quantize.MEDIANCUT)
 
             # Reserve palette index 255 for transparency.
@@ -94,14 +104,28 @@ def save_under_limit(frames: list[Image.Image], durations: list[int], output: Pa
     raise RuntimeError(f"Could not compress {output.name} below {MAX_BYTES} bytes")
 
 
-def load_gif(path: Path) -> tuple[list[Image.Image], list[int]]:
+def load_durations(path: Path, expected_count: int) -> list[int]:
     with Image.open(path) as source:
-        frames = []
+        if source.n_frames != expected_count:
+            raise ValueError(
+                f"{path.name}: expected {expected_count} frames, got {source.n_frames}"
+            )
         durations = []
         for frame in ImageSequence.Iterator(source):
-            frames.append(prepare_frame(frame))
             durations.append(int(frame.info.get("duration", source.info.get("duration", 120))))
-    return frames, durations
+    return durations
+
+
+def load_atlas_frames(atlas: Image.Image, row: int, frame_count: int) -> list[Image.Image]:
+    frames = []
+    for column in range(frame_count):
+        left = column * CELL_WIDTH
+        top = row * CELL_HEIGHT
+        frame = atlas.crop((left, top, left + CELL_WIDTH, top + CELL_HEIGHT))
+        if frame.getchannel("A").getbbox() is None:
+            raise ValueError(f"atlas row {row}, frame {column} is empty")
+        frames.append(prepare_frame(frame))
+    return frames
 
 
 def make_contact_sheet(first_frames: list[tuple[str, Image.Image]]) -> None:
@@ -126,25 +150,33 @@ def main() -> None:
     manifest = []
     first_frames = []
 
-    for source in sorted(SOURCE_DIR.glob("*.gif")):
-        frames, durations = load_gif(source)
-        frames, durations = complete_cycle(frames, durations)
-        output = OUTPUT_DIR / source.name
-        colors = save_under_limit(frames, durations, output)
-        with Image.open(output) as encoded:
-            encoded_frame_count = encoded.n_frames
-        first_frames.append((source.stem, frames[0]))
-        manifest.append(
-            {
-                "file": output.name,
-                "resolution": [CANVAS_SIZE, CANVAS_SIZE],
-                "frames": encoded_frame_count,
-                "duration_ms": sum(durations),
-                "size_bytes": output.stat().st_size,
-                "palette_colors": colors,
-                "loop": "infinite",
-            }
-        )
+    with Image.open(ATLAS_PATH) as atlas_source:
+        atlas = atlas_source.convert("RGBA")
+        expected_size = (CELL_WIDTH * 8, CELL_HEIGHT * 11)
+        if atlas.size != expected_size:
+            raise ValueError(f"expected v2 atlas {expected_size}, got {atlas.size}")
+
+        for state, row, frame_count in sorted(ROW_SPECS, key=lambda item: f"{item[0]}.gif"):
+            source = SOURCE_DIR / f"{state}.gif"
+            durations = load_durations(source, frame_count)
+            frames = load_atlas_frames(atlas, row, frame_count)
+            frames, durations = complete_cycle(frames, durations)
+            output = OUTPUT_DIR / source.name
+            colors = save_under_limit(frames, durations, output)
+            with Image.open(output) as encoded:
+                encoded_frame_count = encoded.n_frames
+            first_frames.append((state, frames[0]))
+            manifest.append(
+                {
+                    "file": output.name,
+                    "resolution": [CANVAS_SIZE, CANVAS_SIZE],
+                    "frames": encoded_frame_count,
+                    "duration_ms": sum(durations),
+                    "size_bytes": output.stat().st_size,
+                    "palette_colors": colors,
+                    "loop": "infinite",
+                }
+            )
 
     make_contact_sheet(first_frames)
     (OUTPUT_DIR / "manifest.json").write_text(
