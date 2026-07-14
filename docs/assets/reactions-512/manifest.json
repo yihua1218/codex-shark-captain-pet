@@ -1,0 +1,152 @@
+{
+  "requirements": {
+    "resolution": [
+      512,
+      512
+    ],
+    "max_bytes": 1000000,
+    "loop": "infinite"
+  },
+  "assets": [
+    {
+      "file": "01-licking.gif",
+      "label": "舔舔舔",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 660,
+      "size_bytes": 530715,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/01-licking.png"
+    },
+    {
+      "file": "02-glow-sticks.gif",
+      "label": "揮螢光棒",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 620,
+      "size_bytes": 481000,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/02-glow-sticks.png"
+    },
+    {
+      "file": "03-startled-shake.gif",
+      "label": "驚嚇到上下震動",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 420,
+      "size_bytes": 406051,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/03-startled-shake.png"
+    },
+    {
+      "file": "04-blush-cover.gif",
+      "label": "臉紅遮臉 不行不行",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 680,
+      "size_bytes": 538604,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/04-blush-cover.png"
+    },
+    {
+      "file": "05-smoke-puff.gif",
+      "label": "吐一口菸",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 860,
+      "size_bytes": 511107,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/05-smoke-puff.png"
+    },
+    {
+      "file": "06-rainbow.gif",
+      "label": "吐彩虹",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 720,
+      "size_bytes": 499568,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/06-rainbow.png"
+    },
+    {
+      "file": "07-tail-wag.gif",
+      "label": "開心的搖尾巴",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 480,
+      "size_bytes": 510546,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/07-tail-wag.png"
+    },
+    {
+      "file": "08-ugly-cry.gif",
+      "label": "醜哭",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 780,
+      "size_bytes": 562772,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/08-ugly-cry.png"
+    },
+    {
+      "file": "09-flirty-drool.gif",
+      "label": "色色吐舌頭＋流口水",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 710,
+      "size_bytes": 559546,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/09-flirty-drool.png"
+    },
+    {
+      "file": "10-terror-scream.gif",
+      "label": "阿~~~~（驚恐叫）",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 4,
+      "duration_ms": 680,
+      "size_bytes": 555382,
+      "palette_colors": 128,
+      "loop": "infinite",
+      "source_sprite_sheet": "reaction-run/spritesheets/10-terror-scream.png"
+    }
+  ]
+}

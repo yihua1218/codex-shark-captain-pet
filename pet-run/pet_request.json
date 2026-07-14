@@ -248,13 +248,13 @@
   ],
   "references": [
     {
-      "path": "/Users/yihua/workspace/pets/codex-shark-captain-pet/pet-run/references/reference-01.jpg",
+      "path": "pet-run/references/reference-01.jpg",
       "width": 934,
       "height": 934,
       "mode": "RGB",
       "format": "JPEG",
-      "source_path": "/Users/yihua/workspace/pets/codex-shark-captain-pet/references/source/shark-captain-reference.jpg",
-      "copied_path": "/Users/yihua/workspace/pets/codex-shark-captain-pet/pet-run/references/reference-01.jpg"
+      "source_path": "references/source/shark-captain-reference.jpg",
+      "copied_path": "pet-run/references/reference-01.jpg"
     }
   ],
   "chroma_key": {
