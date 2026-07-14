@@ -64,6 +64,21 @@
 
 ![Reef 高解析上傳版九組圖案](docs/assets/upload-ready-512/contact-sheet.png)
 
+## 512 × 512 Reaction 動畫包
+
+`docs/assets/reactions-512/` 收錄十組白底 reaction GIF、瀏覽頁、接觸表與可直接取用的 ZIP 壓縮包。每組動畫均為 512 × 512、無限循環，且單檔小於 1 MB。
+
+![Reef 十組 reaction 動畫接觸表](docs/assets/reactions-512/contact-sheet.png)
+
+- [開啟 reaction 瀏覽頁](docs/assets/reactions-512/index.html)
+- [取得完整 ZIP 動畫包](docs/assets/reactions-512/reef-reactions-512.zip)
+
+如需從 `reaction-run/spritesheets/` 重新產生 GIF、接觸表、manifest 與 ZIP：
+
+```bash
+python3 scripts/build_reaction_gifs.py
+```
+
 ## 安裝
 
 可安裝套件位於 [`dist/reef/`](dist/reef/)：
