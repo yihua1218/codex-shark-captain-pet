@@ -1,0 +1,116 @@
+{
+  "requirements": {
+    "max_bytes": 1000000,
+    "max_frames": 60
+  },
+  "assets": [
+    {
+      "file": "failed.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 15,
+      "duration_ms": 2240,
+      "size_bytes": 911380,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "idle.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 11,
+      "duration_ms": 1880,
+      "size_bytes": 664775,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "jumping.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 9,
+      "duration_ms": 1440,
+      "size_bytes": 637357,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "review.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 11,
+      "duration_ms": 1810,
+      "size_bytes": 571881,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "running-left.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 15,
+      "duration_ms": 1960,
+      "size_bytes": 819983,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "running-right.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 15,
+      "duration_ms": 1960,
+      "size_bytes": 890762,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "running.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 11,
+      "duration_ms": 1480,
+      "size_bytes": 729185,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "waiting.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 11,
+      "duration_ms": 1790,
+      "size_bytes": 614977,
+      "palette_colors": 128,
+      "loop": "infinite"
+    },
+    {
+      "file": "waving.gif",
+      "resolution": [
+        512,
+        512
+      ],
+      "frames": 7,
+      "duration_ms": 1160,
+      "size_bytes": 440045,
+      "palette_colors": 128,
+      "loop": "infinite"
+    }
+  ]
+}

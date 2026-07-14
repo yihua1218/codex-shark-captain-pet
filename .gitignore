@@ -8,3 +8,8 @@ pet-run/qa/
 pet-run/imagegen-jobs.json
 pet-run/references/layout-guides/
 
+# Local build and runtime artifacts
+build/
+dist/reef/build.json
+dist/reef/spritesheet.png
+*.sqlite3
